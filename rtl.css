@@ -1,0 +1,19 @@
+body {
+    font-family: Vazirmatn, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Vazirmatn, sans-serif;
+}
+
+body {
+    direction: rtl;
+}
+
+.navbar-header {
+    float: right;
+}
+
+.subtitle-container, .title-container {
+    overflow: hidden;
+}
