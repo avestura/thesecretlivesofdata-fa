@@ -1,25 +1,23 @@
-The Secret Lives of Data
+زندگی مخفی داده‌ها
 ========================
 
-> Understanding what your bits do when you're not looking.
+> فهم اینکه بیت‌هامون چیکار میکنن، وقتایی که بهشون نگاه نمی‌کنیم
 
-## Overview
+## نگاه کلی
 
-So often we use databases and servers without really understanding how they work.
-The way that data flows is critical to performance and reliability.
+بیشتر اوقات ما به سرور‌ها و دیتابیس‌ها نگاه می‌کنیم بدون اینکه بفهمیم چطور کار میکنن.
+طوری که داده‌ها جریان پیدا میکنن برای عملکرد و قابلیت اطمینان ضروریه.
 
-This project seeks to spread the knowledge of our systems through interactive visualization.
-If you have a system that you understand and wish to share then please add a [GitHub Issue](https://github.com/benbjohnson/thesecretlivesofdata/issues).
-Data visualization knowledge is not necessary -- just the desire to spread some knowledge.
+هدف از این پروژه اینه که دانش ما از سیستم‌ها رو از طریق تصویرسازی های تعاملی گسترش بده.
+اگه سیستمی رو میشناسید و دوست دارید که دانش‌تون رو به اشتراک بذارید از طریق [ایشو‌های گیت‌هاب](https://github.com/benbjohnson/thesecretlivesofdata/issues) به اشتراک بذارید.
+بصری‌سازی دانش لزومی نداره -- فقط میل به گسترش دانشه که مهمه.
 
+## بصری‌سازی
 
-## Visualizations
+لیست پایین مجموعه‌ای از بصری‌سازی داده‌ها و ایشو‌های گیت‌هابشونه.
+لطفا هر باگی که میبینید و یا پیشنهادی که در مورد نحوه قابل فهم‌تر کردن این بصری‌سازی‌ها دارید به اشتراک بذارید.
 
-Below is a list of data visualizations and their associated Github issue.
-Please report any bugs you find or any suggestions you have for how to make these visualizations more understandable.
+1. [رفت: اجماع قابل‌فهم در سیستم‌های توزیع‌شده](http://thesecretlivesofdata.com/raft) ([#1](https://github.com/benbjohnson/thesecretlivesofdata/issues/1))
+2. آپاچی کافکا ([#4](https://github.com/benbjohnson/thesecretlivesofdata/issues/4)) - *در حال برنامه‌ریزی*
 
-1. [Raft: Understandable Distributed Consensus](http://thesecretlivesofdata.com/raft) ([#1](https://github.com/benbjohnson/thesecretlivesofdata/issues/1))
-
-2. Apache Kafka ([#4](https://github.com/benbjohnson/thesecretlivesofdata/issues/4)) - *Planning*
-
-If you have suggestions for new topics, please submit a new Github issue.
+اگه پیشنهادی برای موضوعات جدید دارید، لطفا یک ایشو جدید در گیت‌هاب ثبت کنید.
