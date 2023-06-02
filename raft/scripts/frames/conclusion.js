@@ -26,6 +26,10 @@ define([], function () {
             frame.model().title = '<h2 style="visibility:visible">برای اطلاعات بیشتر:</h2>'
                         + '<h3 style="visibility:visible"><a href="https://raft.github.io/raft.pdf">مقاله Raft</a></h3>'
                         + '<h3 style="visibility:visible"><a href="https://raft.github.io/">وب سایت Raft</a></h3>'
+                        + '<h2 style="visibility:visible">نسخه اصلی سایت:</h2>'
+                        + '<h3 style="visibility:visible"><a href="http://thesecretlivesofdata.com/raft/">نسخه انگلیسی</a></h3>'
+                        + '<h2 style="visibility:visible">ترجمه توسط:</h2>'
+                        + '<h3 style="visibility:visible"><a href="http://avestura.dev/">آرین ابراهیم پور</a></h3>'
                         + '<br/>' + frame.model().controls.html();
             layout.invalidate();
         })

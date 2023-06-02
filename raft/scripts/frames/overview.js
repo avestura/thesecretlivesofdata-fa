@@ -22,7 +22,7 @@ define(["../model/log_entry"], function (LogEntry) {
         })
 
         .after(800, function () {
-            model().subtitle = '<h2><em>رفت</em> پروتکلیه برای پیاده‌سازی اجماع توزیع‌شده.</h2>'
+            model().subtitle = '<h2><em>«رفت»</em> پروتکلیه برای پیاده‌سازی اجماع توزیع‌شده.</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -137,7 +137,7 @@ define(["../model/log_entry"], function (LogEntry) {
 
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>همه تغییرات درون سیستم از این به بعد از طریق رهبر انجام میشه.</h2>'
+            model().subtitle = '<h2>از این به بعد همه تغییرات درون سیستم از طریق رهبر انجام میشه.</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -162,7 +162,7 @@ define(["../model/log_entry"], function (LogEntry) {
         .after(100, wait).indefinite()
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>همه تغییرات درون لاگ گره افزوده و ثبت میشه.</h2>'
+            model().subtitle = '<h2>همه تغییرات درون لاگ گره ثبت میشه.</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -184,7 +184,7 @@ define(["../model/log_entry"], function (LogEntry) {
                 node("c")._log.push(new LogEntry(model(), 1, 1, "SET 5"));
                 layout.invalidate();
             });
-            model().subtitle = '<h2>برای کامیت کردن مقدار ثبت‌شده در گره اول باید در گره‌های پیرو تکرار بشه...</h2>'
+            model().subtitle = '<h2>برای کامیت کردن مقدار ثبت‌شده در گره ابتدا باید در گره‌های پیرو تکرار بشه...</h2>'
                            + model().controls.html();
             layout.invalidate();
         })

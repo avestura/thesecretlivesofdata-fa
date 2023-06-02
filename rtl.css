@@ -6,7 +6,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: Vazirmatn, sans-serif;
 }
 
-body {
+#main-index .container {
     direction: rtl;
 }
 
@@ -16,4 +16,5 @@ body {
 
 .subtitle-container, .title-container {
     overflow: hidden;
+    direction: rtl;
 }

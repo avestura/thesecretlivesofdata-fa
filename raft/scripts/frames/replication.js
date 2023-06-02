@@ -95,7 +95,7 @@ define([], function () {
         })
         .after(1, clear)
         .after(model().defaultNetworkLatency, function(event) {
-            subtitle('<h2>حالا بیاین پیامی بفرستیم که مقدار رو ۲ تا افرایش میشده.</h2>');
+            subtitle('<h2>حالا بیاین پیامی بفرستیم که مقدار رو ۲ تا افرایش میده.</h2>');
             client("X").send(model().leader(), "ADD 2");
         })
         .after(1, clear)
@@ -156,7 +156,7 @@ define([], function () {
         .after(1, wait).indefinite()
         .after(1, function () {
             model().clients.create("Y");
-            subtitle('<h2>بیاین یک مشتری اضافعه کنیم و سعی کنیم که هر دو رهبر رو به‌روز کنیم</h2>', false);
+            subtitle('<h2>بیاین یک مشتری اضافه کنیم و سعی کنیم که هر دو رهبر رو به‌روز کنیم</h2>', false);
         })
         .after(1, wait).indefinite()
         .after(1, function () {
