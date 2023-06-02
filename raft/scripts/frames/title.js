@@ -14,8 +14,8 @@ define([], function () {
         })
 
         .after(500, function () {
-            frame.model().title = '<h1 style="visibility:visible">رفت</h1>'
-                        + '<h2 style="visibility:visible">اجماع قابل فهم در سیستم‌های توزیع شده</h2>'
+            frame.model().title = '<h1 style="visibility:visible">رفت (Raft)</h1>'
+                        + '<h2 style="visibility:visible">اجماع توزیع‌شده‌ی قابل‌فهم</h2>'
                         + '<br/>' + frame.model().controls.html();
             layout.invalidate();
         })

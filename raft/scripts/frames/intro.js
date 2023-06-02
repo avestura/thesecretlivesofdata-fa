@@ -20,8 +20,8 @@ define([], function () {
         })
 
         .after(1000, function () {
-            frame.model().title = '<h2 style="visibility:visible">So What is Distributed Consensus?</h2>'
-                        + '<h3 style="visibility:hidden;">Let\'s start with an example...</h3>'
+            frame.model().title = '<h2 style="visibility:visible">به توافق رسیدن (اجماع) توزیع شده اصلا یعنی چی؟</h2>'
+                        + '<h3 style="visibility:hidden;">بیاین با یک مثال شروع کنیم...</h3>'
                         + '<br/>' + frame.model().controls.html();
             layout.invalidate();
         })
@@ -39,7 +39,7 @@ define([], function () {
 
         .after(800, function () {
             frame.snapshot();
-            frame.model().subtitle = '<h2>Let\'s say we have a single node system</h2>'
+            frame.model().subtitle = '<h2>سیستمی رو فرض کنیم که فقط یک گره (Node) داره</h2>'
                            + frame.model().controls.html();
             layout.invalidate();
         })
@@ -56,7 +56,7 @@ define([], function () {
             layout.invalidate();
         })
         .after(600, function () {
-            frame.model().subtitle = '<h3>For this example, you can think of our <span style="color:steelblue">node</span> as a database server that stores a single value.</h3>'
+            frame.model().subtitle = '<h3>برای این مثال میتونیم <span style="color:steelblue">گره</span>مون رو به شکل یک دیتابیس ببینیم که یک مقدار رو داخل خودش نگهداری می‌کنه</h3>'
                            + frame.model().controls.html();
             layout.invalidate();
         })
@@ -75,7 +75,7 @@ define([], function () {
             layout.invalidate();
         })
         .after(1000, function () {
-            frame.model().subtitle = '<h3>We also have a <span style="color:green">client</span> that can send a value to the server.</h3>'
+            frame.model().subtitle = '<h3>ما همچنین یک <span style="color:green">مشتری</span> داریم که می‌تونه به سرور مقدار ارسال کنه</h3>'
                            + frame.model().controls.html();
             layout.invalidate();
         })
@@ -101,7 +101,7 @@ define([], function () {
         })
         .after(100, wait).indefinite()
         .after(100, function () {
-            frame.model().subtitle = '<h3>Coming to agreement, or <em>consensus</em>, on that value is easy with one node.</h3>'
+            frame.model().subtitle = '<h3>به توافق رسیدن، یا <em>اجماع</em>، روی اون مقدار با یک گره کار آسونیه.</h3>'
                            + frame.model().controls.html();
             layout.invalidate();
         })
@@ -110,7 +110,7 @@ define([], function () {
 
         .after(100, function () {
             frame.snapshot();
-            frame.model().subtitle = '<h3>But how do we come to consensus if we have multiple nodes?</h3>'
+            frame.model().subtitle = '<h3>ولی وقتی چندین تا گره داریم چطور به اجماع برسیم؟</h3>'
                            + frame.model().controls.html();
             layout.invalidate();
         })
@@ -127,7 +127,7 @@ define([], function () {
 
         .after(100, function () {
             frame.snapshot();
-            frame.model().subtitle = '<h3>That\'s the problem of <em>distributed consensus</em>.</h3>'
+            frame.model().subtitle = '<h3>این همون مساله‌ی <em>اجماع توزیع‌شده</em>&zwnj;ست.</h3>'
                            + frame.model().controls.html();
             layout.invalidate();
         })

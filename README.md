@@ -17,7 +17,7 @@
 لیست پایین مجموعه‌ای از بصری‌سازی داده‌ها و ایشو‌های گیت‌هابشونه.
 لطفا هر باگی که میبینید و یا پیشنهاداتی که در مورد نحوه قابل فهم‌تر کردن این بصری‌سازی‌ها دارید رو به اشتراک بذارید.
 
-1. [رفت: اجماع قابل‌فهم در سیستم‌های توزیع‌شده](http://thesecretlivesofdata.com/raft) ([#1](https://github.com/benbjohnson/thesecretlivesofdata/issues/1))
+1. [رفت: اجماع توزیع‌شده‌ی قابل‌فهم](http://thesecretlivesofdata.com/raft) ([#1](https://github.com/benbjohnson/thesecretlivesofdata/issues/1))
 2. آپاچی کافکا ([#4](https://github.com/benbjohnson/thesecretlivesofdata/issues/4)) - *در حال برنامه‌ریزی*
 
 اگه پیشنهادی برای موضوعات جدید دارید، لطفا یک ایشو جدید در گیت‌هاب ثبت کنید.

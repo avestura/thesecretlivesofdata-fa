@@ -14,7 +14,7 @@ define([], function () {
         })
 
         .after(500, function () {
-            frame.model().title = '<h1 style="visibility:visible">The End</h1>'
+            frame.model().title = '<h1 style="visibility:visible">پایان</h1>'
                         + '<br/>' + frame.model().controls.html();
             layout.invalidate();
         })
@@ -23,9 +23,9 @@ define([], function () {
         })
 
         .after(500, function () {
-            frame.model().title = '<h2 style="visibility:visible">For more information:</h2>'
-                        + '<h3 style="visibility:visible"><a href="https://raft.github.io/raft.pdf">The Raft Paper</a></h3>'
-                        + '<h3 style="visibility:visible"><a href="https://raft.github.io/">Raft Web Site</a></h3>'
+            frame.model().title = '<h2 style="visibility:visible">برای اطلاعات بیشتر:</h2>'
+                        + '<h3 style="visibility:visible"><a href="https://raft.github.io/raft.pdf">مقاله Raft</a></h3>'
+                        + '<h3 style="visibility:visible"><a href="https://raft.github.io/">وب سایت Raft</a></h3>'
                         + '<br/>' + frame.model().controls.html();
             layout.invalidate();
         })

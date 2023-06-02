@@ -24,7 +24,7 @@ define([], function () {
             layout.invalidate();
         })
         .after(500, function () {
-            frame.model().title = '<h2 style="visibility:visible">Log Replication</h1>'
+            frame.model().title = '<h2 style="visibility:visible">تکرار لاگ</h1>'
                                 + '<br/>' + frame.model().controls.html();
             layout.invalidate();
         })
@@ -53,15 +53,15 @@ define([], function () {
         // Overview
         //------------------------------
         .then(function () {
-            subtitle('<h2>Once we have a leader elected we need to replicate all changes to our system to all nodes.</h2>', false);
+            subtitle('<h2>حالا که یک رهبر منتخب داریم نیازه که همه تغییرات رو در سیستم‌مون برای همه گره‌ها تکرار کنیم.</h2>', false);
         })
         .then(wait).indefinite()
         .then(function () {
-            subtitle('<h2>This is done by using the same <em>Append Entries</em> message that was used for heartbeats.</h2>', false);
+            subtitle('<h2>این کار با استفاده از همون پیام <em>Append Entries</em> که قبلا برای ضربان قلب ازش استفاده کردیم انجام میشه.</h2>', false);
         })
         .then(wait).indefinite()
         .then(function () {
-            subtitle('<h2>Let\'s walk through the process.</h2>', false);
+            subtitle('<h2>بیاین ببینیم این فرایند چطور کار میکنه.</h2>', false);
         })
         .then(wait).indefinite()
 
@@ -71,36 +71,36 @@ define([], function () {
         //------------------------------
         .then(function () {
             model().clients.create("X");
-            subtitle('<h2>First a client sends a change to the leader.</h2>', false);
+            subtitle('<h2>در ابتدا مشتری تغییری رو به رهبر ارسال می‌کنه.</h2>', false);
         })
         .then(wait).indefinite()
         .then(function () {
             client("X").send(model().leader(), "SET 5");
         })
         .after(model().defaultNetworkLatency, function() {
-            subtitle('<h2>The change is appended to the leader\'s log...</h2>');
+            subtitle('<h2>این تغییر در لاگ رهبر ثبت میشه...</h2>');
         })
         .at(model(), "appendEntriesRequestsSent", function () {})
         .after(model().defaultNetworkLatency * 0.25, function(event) {
-            subtitle('<h2>...then the change is sent to the followers on the next heartbeat.</h2>');
+            subtitle('<h2>...در ضربان بعدی این تغییر به پیروان ارسال میشه.</h2>');
         })
         .after(1, clear)
         .at(model(), "commitIndexChange", function (event) {
             if(event.target === model().leader()) {
-                subtitle('<h2>An entry is committed once a majority of followers acknowledge it...</h2>');
+                subtitle('<h2>لاگ ثبت شده زمانی کامیت میشه که اکثریت پیرو‌ها به رسمیت بشناسنش...</h2>');
             }
         })
         .after(model().defaultNetworkLatency * 0.25, function(event) {
-            subtitle('<h2>...and a response is sent to the client.</h2>');
+            subtitle('<h2>...و یک پاسخ به مشتری ارسال میشه.</h2>');
         })
         .after(1, clear)
         .after(model().defaultNetworkLatency, function(event) {
-            subtitle('<h2>Now let\'s send a command to increment the value by "2".</h2>');
+            subtitle('<h2>حالا بیاین پیامی بفرستیم که مقدار رو ۲ تا افرایش میشده.</h2>');
             client("X").send(model().leader(), "ADD 2");
         })
         .after(1, clear)
         .at(model(), "recv", function (event) {
-            subtitle('<h2>Our system value is now updated to "7".</h2>', false);
+            subtitle('<h2>مقدار سیستم حالا به عدد «۷» تغییر پیدا کرده.</h2>', false);
         })
         .after(1, wait).indefinite()
 
@@ -128,11 +128,11 @@ define([], function () {
             node("B").state("leader");
         })
         .after(1, function () {
-            subtitle('<h2>Raft can even stay consistent in the face of network partitions.</h2>', false);
+            subtitle('<h2>«رفت» حتی میتونه در صورت تقسیم و تکه‌تکه شدن شبکه هم استوار و بدون تناقض باقی بمونه</h2>', false);
         })
         .after(1, wait).indefinite()
         .after(1, function () {
-            subtitle('<h2>Let\'s add a partition to separate A & B from C, D & E.</h2>', false);
+            subtitle('<h2>بیاین با یک تقسیم بندی گره‌های A و B رو از گره‌های C و D و E جدا کنیم</h2>', false);
         })
         .after(1, wait).indefinite()
         .after(1, function () {
@@ -151,35 +151,35 @@ define([], function () {
             return (event.target.state() === "leader");
         })
         .after(1, function () {
-            subtitle('<h2>Because of our partition we now have two leaders in different terms.</h2>', false);
+            subtitle('<h2>به خاطر این تقسیم‌بندی حالا دو رهبر در دوره‌های متفاوت داریم</h2>', false);
         })
         .after(1, wait).indefinite()
         .after(1, function () {
             model().clients.create("Y");
-            subtitle('<h2>Let\'s add another client and try to update both leaders.</h2>', false);
+            subtitle('<h2>بیاین یک مشتری اضافعه کنیم و سعی کنیم که هر دو رهبر رو به‌روز کنیم</h2>', false);
         })
         .after(1, wait).indefinite()
         .after(1, function () {
             client("Y").send(node("B"), "SET 3");
-            subtitle('<h2>One client will try to set the value of node B to "3".</h2>', false);
+            subtitle('<h2>یکی از مشتری‌ها سعی میکنه که مقدار گره B رو به «۳» تغییر بده</h2>', false);
         })
         .after(1, wait).indefinite()
         .after(1, function () {
-            subtitle('<h2>Node B cannot replicate to a majority so its log entry stays uncommitted.</h2>', false);
+            subtitle('<h2>گره B نمیتونه لاگ ثبت شدش رو در اکثریت سیستم تکرار کنه بنابراین این مقدار کامیت نشده باقی می‌مونه.</h2>', false);
         })
         .after(1, wait).indefinite()
         .after(1, function () {
             var leader = model().leader(["C", "D", "E"]);
             client("X").send(leader, "SET 8");
-            subtitle('<h2>The other client will try to set the value of node ' + leader.id + ' to "8".</h2>', false);
+            subtitle('<h2>مشتری بعدی سعی میکنه که مقدار گره ' + leader.id + ' رو به «۸» تغییر بده.</h2>', false);
         })
         .after(1, wait).indefinite()
         .after(1, function () {
-            subtitle('<h2>This will succeed because it can replicate to a majority.</h2>', false);
+            subtitle('<h2>این تغییر موفقیت آمیزه چون که می‌تونه در اکثریت تکرار بشه.</h2>', false);
         })
         .after(1, wait).indefinite()
         .after(1, function () {
-            subtitle('<h2>Now let\'s heal the network partition.</h2>', false);
+            subtitle('<h2>حالا بیایم تقسیم‌بندی شبکه رو ترمیم کنیم</h2>', false);
         })
         .after(1, wait).indefinite()
         .after(1, function () {
@@ -193,14 +193,14 @@ define([], function () {
             return (event.target.id === "B" && event.target.state() === "follower");
         })
         .after(1, function () {
-            subtitle('<h2>Node B will see the higher election term and step down.</h2>');
+            subtitle('<h2>گره B دوره انتخاباتی بالاتری رو میبینه و کناره گیری میکنه</h2>');
         })
         .after(1, function () {
-            subtitle('<h2>Both nodes A & B will roll back their uncommitted entries and match the new leader\'s log.</h2>');
+            subtitle('<h2>هر دو گره A و B از مقادیر کامیت نشده‌شون عقب نشینی میکنن و منطبق با لاگ‌های رهبر جدید میشن</h2>');
         })
         .after(1, wait).indefinite()
         .after(1, function () {
-            subtitle('<h2>Our log is now consistent across our cluster.</h2>', false);
+            subtitle('<h2>حالا لاگ‌هامون در سطح کلاستر سازگار و بدون نقصه.</h2>', false);
         })
         .after(1, wait).indefinite()
 

@@ -22,7 +22,7 @@ define([], function () {
             layout.invalidate();
         })
         .after(500, function () {
-            frame.model().title = '<h2 style="visibility:visible">Leader Election</h1>'
+            frame.model().title = '<h2 style="visibility:visible">انتخاب رهبر</h1>'
                                 + '<br/>' + frame.model().controls.html();
             layout.invalidate();
         })
@@ -47,19 +47,19 @@ define([], function () {
         //------------------------------
         .after(1, function () {
             model().ensureSingleCandidate();
-            model().subtitle = '<h2>In Raft there are two timeout settings which control elections.</h2>'
+            model().subtitle = '<h2>در «رفت» دو تنظیم مهلت (تایم‌اوت) وجود داره که انتخابات رو کنترل می‌کنن.</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
         .after(model().electionTimeout / 2, function() { model().controls.show(); })
         .after(100, function () {
-            subtitle('<h2>First is the <span style="color:green">election timeout</span>.</h2>');
+            subtitle('<h2>اولیش <span style="color:green">مهلت انتخاباته</span>.</h2>');
         })
         .after(1, function() {
-            subtitle('<h2>The election timeout is the amount of time a follower waits until becoming a candidate.</h2>');
+            subtitle('<h2>مهلت انتخابات مدت زمانیه که یک پیرو صبر می‌کنه تا خودش رو کاندید کنه.</h2>');
         })
         .after(1, function() {
-            subtitle('<h2>The election timeout is randomized to be between 150ms and 300ms.</h2>');
+            subtitle('<h2>مهلت انتخابات یک عدد رندوم بین ۱۵۰ تا ۳۰۰ میلی ثانیه هست.</h2>');
         })
         .after(1, function() {
             subtitle("", false);
@@ -72,19 +72,19 @@ define([], function () {
             return (event.target.state() === "candidate");
         })
         .after(1, function () {
-            subtitle('<h2>After the election timeout the follower becomes a candidate and starts a new <em>election term</em>...</h2>');
+            subtitle('<h2>بعد از اینکه مهلت انتخابات تموم میشه پیرو خودش رو کاندید می‌کنه و یک <em>دوره انتخاباتی</em> رو شروع می‌کنه...</h2>');
         })
         .after(1, function () {
-            subtitle('<h2>...votes for itself...</h2>');
+            subtitle('<h2>...به خودش رای میده...</h2>');
         })
         .after(model().defaultNetworkLatency * 0.25, function () {
-            subtitle('<h2>...and sends out <em>Request Vote</em> messages to other nodes.</h2>');
+            subtitle('<h2>...و یک پیام <em>درخواست رای</em> به سایر گره‌ها ارسال می‌کنه.</h2>');
         })
         .after(model().defaultNetworkLatency, function () {
-            subtitle('<h2>If the receiving node hasn\'t voted yet in this term then it votes for the candidate...</h2>');
+            subtitle('<h2>اگه گره‌ای که این درخواست رو دریافت می‌کنه هنوز رای نداده باشه، به این کاندید رای میده...</h2>');
         })
         .after(1, function () {
-            subtitle('<h2>...and the node resets its election timeout.</h2>');
+            subtitle('<h2>...و بعدش این گره مهلت انتخابات خودش رو ریست می‌کنه.</h2>');
         })
 
 
@@ -95,22 +95,22 @@ define([], function () {
             return (event.target.state() === "leader");
         })
         .after(1, function () {
-            subtitle('<h2>Once a candidate has a majority of votes it becomes leader.</h2>');
+            subtitle('<h2>وقتی کاندیدی اکثریت رای رو داشته باشه تبدیل به رهبر میشه.</h2>');
         })
         .after(model().defaultNetworkLatency * 0.25, function () {
-            subtitle('<h2>The leader begins sending out <em>Append Entries</em> messages to its followers.</h2>');
+            subtitle('<h2>رهبر شروع به ارسال پیامی تحت عنوان <em>Append Entries</em> به پیروانش می‌کنه.</h2>');
         })
         .after(1, function () {
-            subtitle('<h2>These messages are sent in intervals specified by the <span style="color:red">heartbeat timeout</span>.</h2>');
+            subtitle('<h2>این پیام‌ها به طور دوره‌ای مطابق با تنظیمات <span style="color:red">مهلت ضربان قلب</span> ارسال می‌شن.</h2>');
         })
         .after(model().defaultNetworkLatency, function () {
-            subtitle('<h2>Followers then respond to each <em>Append Entries</em> message.</h2>');
+            subtitle('<h2>پیروه‌ها به هر پیام <em>Append Entries</em> پاسخ میدن.</h2>');
         })
         .after(1, function () {
             subtitle('', false);
         })
         .after(model().heartbeatTimeout * 2, function () {
-            subtitle('<h2>This election term will continue until a follower stops receiving heartbeats and becomes a candidate.</h2>', false);
+            subtitle('<h2>این دوره انتخاباتی تا زمانی ادامه پیدا میکنه که یکی از پیرو‌ها دیگه ضربانی رو دریافت نکنه و تبدیل به یک کاندید بشه.</h2>', false);
         })
         .after(100, wait).indefinite()
         .after(1, function () {
@@ -121,7 +121,7 @@ define([], function () {
         // Leader re-election
         //------------------------------
         .after(model().heartbeatTimeout * 2, function () {
-            subtitle('<h2>Let\'s stop the leader and watch a re-election happen.</h2>', false);
+            subtitle('<h2>بیاین رهبر رو متوقف کنیم و ببینیم که چطور یک انتخابات مجدد برگزار میشه.</h2>', false);
         })
         .after(100, wait).indefinite()
         .after(1, function () {
@@ -135,7 +135,7 @@ define([], function () {
             return (event.target.state() === "leader");
         })
         .after(1, function () {
-            subtitle('<h2>Node ' + model().leader().id + ' is now leader of term ' + model().leader().currentTerm() + '.</h2>', false);
+            subtitle('<h2>گره ' + model().leader().id + ' الان رهبر دوره ' + model().leader().currentTerm() + ' هست.</h2>', false);
         })
         .after(1, wait).indefinite()
 
@@ -143,15 +143,15 @@ define([], function () {
         // Split Vote
         //------------------------------
         .after(1, function () {
-            subtitle('<h2>Requiring a majority of votes guarantees that only one leader can be elected per term.</h2>', false);
+            subtitle('<h2>درخواست اکثریت آرا تضمین می‌کنه که در هر دوره فقط یک گره میتونه رهبر بشه.</h2>', false);
         })
         .after(1, wait).indefinite()
         .after(1, function () {
-            subtitle('<h2>If two nodes become candidates at the same time then a split vote can occur.</h2>', false);
+            subtitle('<h2>اگه دو تا گره همزمان کاندید بشن ممکنه یک تقسیم رای اتفاق بیفته</h2>', false);
         })
         .after(1, wait).indefinite()
         .after(1, function () {
-            subtitle('<h2>Let\'s take a look at a split vote example...</h2>', false);
+            subtitle('<h2>بیاین به یک مثال از تقسیم رای نگاه کنیم...</h2>', false);
         })
         .after(1, wait).indefinite()
         .after(1, function () {
@@ -171,23 +171,23 @@ define([], function () {
             return (event.target.state() === "candidate");
         })
         .after(model().defaultNetworkLatency * 0.25, function () {
-            subtitle('<h2>Two nodes both start an election for the same term...</h2>');
+            subtitle('<h2>دو گره یک انتخابات رو در دوره یکسانی شروع میکنن...</h2>');
         })
         .after(model().defaultNetworkLatency * 0.75, function () {
-            subtitle('<h2>...and each reaches a single follower node before the other.</h2>');
+            subtitle('<h2>...و هرکدومشون یک پیرو رو قبل از دیگری بدست میارن.</h2>');
         })
         .after(model().defaultNetworkLatency, function () {
-            subtitle('<h2>Now each candidate has 2 votes and can receive no more for this term.</h2>');
+            subtitle('<h2>حالا هر کاندید دو تا رای داره و بیشتر از این هم نمیتونه توی این دوره رای بدست بیاره.</h2>');
         })
         .after(1, function () {
-            subtitle('<h2>The nodes will wait for a new election and try again.</h2>', false);
+            subtitle('<h2>گره ها منتظر یک انتخابات جدید میمونن و دوباره امتحان میکنن</h2>', false);
         })
         .at(model(), "stateChange", function(event) {
             return (event.target.state() === "leader");
         })
         .after(1, function () {
             model().resetLatencies();
-            subtitle('<h2>Node ' + model().leader().id + ' received a majority of votes in term ' + model().leader().currentTerm() + ' so it becomes leader.</h2>', false);
+            subtitle('<h2>گره ' + model().leader().id + ' بیشتر آرا رو در دوره ' + model().leader().currentTerm() + ' بدست آورده و رهبر میشه.</h2>', false);
         })
         .after(1, wait).indefinite()
 

@@ -22,14 +22,14 @@ define(["../model/log_entry"], function (LogEntry) {
         })
 
         .after(800, function () {
-            model().subtitle = '<h2><em>Raft</em> is a protocol for implementing distributed consensus.</h2>'
+            model().subtitle = '<h2><em>رفت</em> پروتکلیه برای پیاده‌سازی اجماع توزیع‌شده.</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
         .after(100, wait).indefinite()
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>Let\'s look at a high level overview of how it works.</h2>'
+            model().subtitle = '<h2>بیاین با یک نگاه کلی ببینیم که چطور کار می‌کنه.</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -39,7 +39,7 @@ define(["../model/log_entry"], function (LogEntry) {
         .after(100, function () {
             frame.snapshot();
             model().zoom([node("b")]);
-            model().subtitle = '<h2>A node can be in 1 of 3 states:</h2>'
+            model().subtitle = '<h2>یک گره می‌تونه توی یکی از این سه حالت باشه:</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -47,7 +47,7 @@ define(["../model/log_entry"], function (LogEntry) {
         .after(100, function () {
             frame.snapshot();
             node("b")._state = "follower";
-            model().subtitle = '<h2>The <em>Follower</em> state,</h2>'
+            model().subtitle = '<h2>حالت <em>پیرو (یا فالوور)</em>،</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -55,7 +55,7 @@ define(["../model/log_entry"], function (LogEntry) {
         .after(100, function () {
             frame.snapshot();
             node("b")._state = "candidate";
-            model().subtitle = '<h2>the <em>Candidate</em> state,</h2>'
+            model().subtitle = '<h2>حالت <em>کاندید</em>،</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -63,7 +63,7 @@ define(["../model/log_entry"], function (LogEntry) {
         .after(100, function () {
             frame.snapshot();
             node("b")._state = "leader";
-            model().subtitle = '<h2>or the <em>Leader</em> state.</h2>'
+            model().subtitle = '<h2>و یا حالت <em>رهبر</em>.</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -73,14 +73,14 @@ define(["../model/log_entry"], function (LogEntry) {
             frame.snapshot();
             model().zoom(null);
             node("b")._state = "follower";
-            model().subtitle = '<h2>All our nodes start in the follower state.</h2>'
+            model().subtitle = '<h2>همه گره‌ها با حالت پیرو شروع می‌کنن</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
         .after(100, wait).indefinite()
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>If followers don\'t hear from a leader then they can become a candidate.</h2>'
+            model().subtitle = '<h2>وقتی پیرو‌ها خبری از یک رهبر نمی‌شنون میتونن تبدیل به یک کاندید بشن.</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -91,7 +91,7 @@ define(["../model/log_entry"], function (LogEntry) {
         .after(100, wait).indefinite()
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>The candidate then requests votes from other nodes.</h2>'
+            model().subtitle = '<h2>کاندید از سایر گره‌ها درخواست رای می‌کنه.</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -103,7 +103,7 @@ define(["../model/log_entry"], function (LogEntry) {
         .after(100, wait).indefinite()
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>Nodes will reply with their vote.</h2>'
+            model().subtitle = '<h2>گره‌ها هم با رای‌شون جواب می‌دن.</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -121,14 +121,14 @@ define(["../model/log_entry"], function (LogEntry) {
         .after(100, wait).indefinite()
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>The candidate becomes the leader if it gets votes from a majority of nodes.</h2>'
+            model().subtitle = '<h2>کاندید در صورتی که رای اکثریت رو داشته باشه تبدیل به رهبر میشه.</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
         .after(100, wait).indefinite()
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>This process is called <em>Leader Election</em>.</h2>'
+            model().subtitle = '<h2>به این فرایند <em>انتخاب رهبر</em> میگیم.</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -137,7 +137,7 @@ define(["../model/log_entry"], function (LogEntry) {
 
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>All changes to the system now go through the leader.</h2>'
+            model().subtitle = '<h2>همه تغییرات درون سیستم از این به بعد از طریق رهبر انجام میشه.</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -162,14 +162,14 @@ define(["../model/log_entry"], function (LogEntry) {
         .after(100, wait).indefinite()
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>Each change is added as an entry in the node\'s log.</h2>'
+            model().subtitle = '<h2>همه تغییرات درون لاگ گره افزوده و ثبت میشه.</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
         .after(100, wait).indefinite()
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>This log entry is currently uncommitted so it won\'t update the node\'s value.</h2>'
+            model().subtitle = '<h2>لاگ ثبت‌شده در گره هنوز کامیت نشده (تضمین نشده)، بنابراین مقدار گره به‌روز نمیشه.</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -184,7 +184,7 @@ define(["../model/log_entry"], function (LogEntry) {
                 node("c")._log.push(new LogEntry(model(), 1, 1, "SET 5"));
                 layout.invalidate();
             });
-            model().subtitle = '<h2>To commit the entry the node first replicates it to the follower nodes...</h2>'
+            model().subtitle = '<h2>برای کامیت کردن مقدار ثبت‌شده در گره اول باید در گره‌های پیرو تکرار بشه...</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -197,7 +197,7 @@ define(["../model/log_entry"], function (LogEntry) {
                 layout.invalidate();
             });
             model().send(node("c"), node("a"), {type:"AEREQ"});
-            model().subtitle = '<h2>then the leader waits until a majority of nodes have written the entry.</h2>'
+            model().subtitle = '<h2>بعد از اون رهبر منتظر میمونه تا اکثریت گره‌ها اون مقدار رو ثبت کنن.</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -209,7 +209,7 @@ define(["../model/log_entry"], function (LogEntry) {
         .after(100, wait).indefinite()
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>The entry is now committed on the leader node and the node state is "5".</h2>'
+            model().subtitle = '<h2>حالا دیگه مقدار ثبت شده در گره رهبر کامیت و تضمین شده و وضعیت گره به «۵» تغییر می‌کنه.</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -226,14 +226,14 @@ define(["../model/log_entry"], function (LogEntry) {
                 node("c")._commitIndex = 1;
                 layout.invalidate();
             });
-            model().subtitle = '<h2>The leader then notifies the followers that the entry is committed.</h2>'
+            model().subtitle = '<h2>بعدش رهبر به پیرو‌ها اطلاع میده که مقدارش کامیت شده.</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
         .after(100, wait).indefinite()
         .after(100, function () {
             frame.snapshot();
-            model().subtitle = '<h2>The cluster has now come to consensus about the system state.</h2>'
+            model().subtitle = '<h2>کلاستر روی وضعیت فعلی سیستم به اجماع رسیده.</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
@@ -242,7 +242,7 @@ define(["../model/log_entry"], function (LogEntry) {
 
         .after(300, function () {
             frame.snapshot();
-            model().subtitle = '<h2>This process is called <em>Log Replication</em>.</h2>'
+            model().subtitle = '<h2>به این فرایند <em>تکرار لاگ (Log Replication)</em> می‌گیم.</h2>'
                            + model().controls.html();
             layout.invalidate();
         })
